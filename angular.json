@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "coronapractice"
+    }
+  },
+  "defaultProject": "coronapractice",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -1,0 +1,9 @@
+<h2 class="latest"><i class="fa fa-star" aria-hidden="true"></i> Latest News <i class="fa fa-star" aria-hidden="true"></i></h2>
+<div class="box"> 
+    <div class="component" *ngFor="let n of news">  
+        <h2><a href="{{n.url}}"><i class="fa fa-angle-right" aria-hidden="true"></i> {{n.title}}</a></h2>
+        <p *ngIf="n.publishedAt">Published at {{ n.publishedAt | date:'MM/dd/yyyy'}}</p>
+        <p *ngIf="n.author">By {{n.author}}</p>
+        <p *ngIf="n.description">{{n.description}}</p>
+    </div>
+</div>
