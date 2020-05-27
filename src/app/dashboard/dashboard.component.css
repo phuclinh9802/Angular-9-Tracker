@@ -1,4 +1,6 @@
 .loader {
+    padding: 0;
+    margin: 0;
     position: fixed;
     z-index: 99; 
     width: 100%;
@@ -35,7 +37,19 @@
       blink-caret .5s step-end infinite;
   }
 
-
+.main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: appear 0.5s;
+  animation-delay: 7s;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  visibility: hidden;
+  opacity: 0;
+}
 
 
 /* The typing effect */
@@ -51,10 +65,8 @@
 }
 
 @keyframes appear {
-  0% {
-    opacity: 0;
-  }
   100% {
+    visibility: visible;
     opacity: 1;
   }
 }
