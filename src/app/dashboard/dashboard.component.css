@@ -1,0 +1,69 @@
+.loader {
+    position: fixed;
+    z-index: 99; 
+    width: 100%;
+    height: 100%;
+    background-color: #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+
+.loader {
+    animation: hide 0.5s;
+    animation-delay: 7s;
+    animation-fill-mode: forwards;
+}
+/* .loader.hidden {
+    animation: out 0.5s;
+    animation-delay: 5s;
+    animation-fill-mode: forwards;
+} */
+
+.loader h2 {
+    color: #fff;
+    font-family: monospace;
+    overflow: hidden; 
+    border-right: .15em solid #61892F; 
+    white-space: nowrap; 
+    margin: 0 auto; 
+    letter-spacing: .15em;
+    animation: 
+      typing 5s steps(40, end),
+      blink-caret .5s step-end infinite;
+  }
+
+
+
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 33% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #61892F }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+ @keyframes hide {
+   0% {
+     opacity: 1;
+   }
+   100% {
+     opacity: 0;
+   }
+ }

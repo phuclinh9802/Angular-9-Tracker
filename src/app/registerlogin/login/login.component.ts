@@ -9,7 +9,7 @@ import { NgForm } from "@angular/forms"
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  invalidLogin = true;
+  invalidLogin = false;
   constructor(private http : HttpClient, private router: Router) { }
 
   ngOnInit(): void {
@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
 
   login(form: NgForm): void {
     let credentials = JSON.stringify(form.value);
-    this.http.post("https://localhost:5001/api/auth/login", credentials, {
+    //Windows: https://localhost:5001/api/login, Mac: https://localhost:5001/api/auth/login
+    this.http.post("https://localhost:5001/api/login", credentials, {
       headers: new HttpHeaders({
         "Content-Type": "application/json"
       })
@@ -25,14 +26,11 @@ export class LoginComponent implements OnInit {
       let token = (<any>response).token;
       localStorage.setItem("jwt", token);
       this.invalidLogin = false;
-      this.router.navigate(["/"]);
+      this.router.navigate(["/dashboard"]);
     }, err => {
       this.invalidLogin = true;
     });
   }
 
-  logout() : void {
-    localStorage.removeItem('jwt');
-  }
 
 }
