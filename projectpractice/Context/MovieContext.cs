@@ -14,5 +14,7 @@ namespace projectpractice.Context
 
         //public DbSet<Movie> Movie { get; set; }
         public DbSet<NewMovie> NewMovie { get; set; }
+        public DbSet<Identity> UserIdentity { get; set; }
+        public DbSet<Register> Users { get; set; }
     }
 }

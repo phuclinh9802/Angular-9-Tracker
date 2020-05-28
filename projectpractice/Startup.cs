@@ -16,6 +16,10 @@ using projectpractice.Context;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using projectpractice.Models;
+using Microsoft.AspNetCore.Identity;
+using AutoMapper;
+using projectpractice.Services;
 
 namespace projectpractice
 {
@@ -64,6 +68,8 @@ namespace projectpractice
                     );
             });
 
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddScoped<IUserService, UserService>();
             services.AddControllers();
             services.AddMvc(options => options.EnableEndpointRouting = false);
         }

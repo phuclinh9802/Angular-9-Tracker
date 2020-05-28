@@ -5,9 +5,12 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using projectpractice.Models;
+using AutoMapper;
+using projectpractice.Services;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -17,9 +20,40 @@ namespace projectpractice.Controllers
     [Route("api/auth")]
     public class UserController : Controller
     {
+        private IUserService _userService;
+        private IMapper _mapper;
+        private readonly SignInManager<Identity> _signInManager;
+
+        // Dependency Injection
+        public UserController(IUserService userService, IMapper mapper) {
+            _userService = userService;
+            _mapper = mapper;
+        }
+
+
+        [HttpPost, Route("register")]
+        public IActionResult Register([FromBody] RegisterModel user)
+        {
+            var users = _mapper.Map<Register>(user);
+
+            try
+            {
+              // create user
+              _userService.Create(users, users.Password);
+              return Ok();
+            }
+            catch (Exception ex)
+            {
+              // return error message if there was an exception
+              return BadRequest(new { message = ex.Message });
+            }
+    } 
+
         [HttpPost, Route("login")]
         public IActionResult Login([FromBody] User user)
         {
+            var loginUser = _userService.Authenticate(user.UserName, user.Password);
+
             if (user == null)
             {
                 return BadRequest("Invalid client request");
@@ -71,11 +105,14 @@ namespace projectpractice.Controllers
 
             else if (user.UserName != "phil" || user.UserName != "nguyet")
             {
-                var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("UserCode"));
+                if (loginUser == null) {
+                    return NotFound("User is not found");
+                }
+                var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Thisisforuseronly"));
                 var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name, user.UserName),
+                    new Claim(ClaimTypes.Name, loginUser.UserName),
                     new Claim(ClaimTypes.Role, "User")
                 };
 
@@ -88,12 +125,17 @@ namespace projectpractice.Controllers
                 );
 
                 var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
-                return Ok(new { Token = tokenString });
+
+                return Ok(new {
+                  Id = loginUser.Id,
+                  UserName = loginUser.UserName,
+                  FirstName = loginUser.FirstName,
+                  LastName = loginUser.LastName,
+                  Token = tokenString
+                });
+              
             }
-            else
-            {
-                return Unauthorized();
-            }
+            return Unauthorized(new { message = "Username/Password is incorrect. Please try again!" });
         }
     }
 }
