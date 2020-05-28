@@ -26,7 +26,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["src/app.js"]
           },
           "configurations": {
             "production": {
@@ -90,7 +90,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["src/app.js"]
           }
         },
         "lint": {

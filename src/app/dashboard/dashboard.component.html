@@ -1,5 +1,19 @@
-<p>Landing page</p>
-<app-news></app-news>
-<app-charts></app-charts>
+<div class="loader">
+    <h2>Welcome to Phillip's Corona Tracker Project...</h2>
+</div>
+<div class="main">
+    <p>Landing page</p>
+    <app-news></app-news>
+    <app-charts></app-charts>
+    <button (click)="logOut()">Log Out</button>
+</div>
 
-<button (click)="logOut()">Log Out</button>
+
+
+<script>
+    window.addEventListener("load", function() {
+        const loader = document.querySelector(".loader");
+        loader.className += " hidden";
+    });
+</script>
+
