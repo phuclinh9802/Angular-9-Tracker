@@ -1,0 +1,38 @@
+.sidebar {
+    position: fixed;
+    background: #333;
+    width: 200px;
+    height: 100%; 
+    padding: 20px 0;
+    transition: 0.5s;
+    border-right: 1px solid #61892F;
+}
+
+.sidebar p {
+    font-size: 1.2em;
+    text-align: center;
+    color: #eee;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    font-family: 'Pacifico', cursive;
+}
+
+.sidebar ul {
+    list-style-type: none;
+}
+.sidebar ul li {
+    padding: 15px;
+    border-bottom: 1px solid #61892F;
+    display: block;
+    font-family: 'Abel', sans-serif;
+}
+
+.sidebar li a{
+    color: #eee;
+    text-decoration: none;
+}
+
+.sidebar li a:hover {
+    opacity: 0.5;
+}

@@ -17,6 +17,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { NewsComponent } from './dashboard/news/news.component';
 import { ChartsComponent } from './dashboard/charts/charts.component';
 import { UserService } from './user-service.service';
+import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -32,7 +33,8 @@ export function tokenGetter() {
     LoginComponent,
     RegisterComponent,
     NewsComponent,
-    ChartsComponent
+    ChartsComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
