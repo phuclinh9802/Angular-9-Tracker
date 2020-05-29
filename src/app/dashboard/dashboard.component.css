@@ -33,8 +33,8 @@
     margin: 0 auto; 
     letter-spacing: .15em;
     animation: 
-      typing 5s steps(40, end),
-      blink-caret .5s step-end infinite;
+      typing 5s steps(50, end),
+      blink-caret .75s step-end infinite;
   }
 
 .main {
@@ -47,7 +47,6 @@
   animation-delay: 7s;
   animation-duration: 3s;
   animation-fill-mode: forwards;
-  visibility: hidden;
   opacity: 0;
 }
 
@@ -55,7 +54,7 @@
 /* The typing effect */
 @keyframes typing {
     from { width: 0 }
-    to { width: 33% }
+    to { width: 47% }
 }
 
 /* The typewriter cursor effect */
@@ -66,16 +65,17 @@
 
 @keyframes appear {
   100% {
-    visibility: visible;
     opacity: 1;
+    display: block;
   }
 }
 
  @keyframes hide {
-   0% {
-     opacity: 1;
-   }
+   /* 0% {
+     display: flex;
+   } */
    100% {
+     z-index: -99;
      opacity: 0;
    }
  }

@@ -1,7 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { HttpClientModule } from '@angular/common/http'
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +16,7 @@ import { RegisterComponent } from './registerlogin/register/register.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { NewsComponent } from './dashboard/news/news.component';
 import { ChartsComponent } from './dashboard/charts/charts.component';
+import { UserService } from './user-service.service';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -33,6 +36,9 @@ export function tokenGetter() {
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    ToastrModule.forRoot(),
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
@@ -44,7 +50,7 @@ export function tokenGetter() {
       }
     })
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
