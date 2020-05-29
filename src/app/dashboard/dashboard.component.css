@@ -53,8 +53,9 @@
 
 .navbar {
   position: absolute;
-  left: 200px;
-  width: calc(100% - 200px);
+  /* left: 200px; */
+  /* width: calc(100% - 200px); */
+  width: 100%;
   height: 70px;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   letter-spacing: 2px;
@@ -64,15 +65,22 @@
 .navbar ul {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   height: 70px;
+  padding-top: 10px;
   list-style: none;
 }
 .navbar ul li a{
   padding: 20px;
-  color: #333;
+  color: #eee;
   text-decoration: none;
-  
+}
+
+.navbar a#lo {
+  background-color: #DC143C;
+  cursor: pointer;
+  color: #eeeeee;
+  border-radius: 4px;
 }
 
 .navbar ul li:nth-child(1) {
@@ -85,12 +93,16 @@
 .landing-page {
   position: absolute;
   top: 70px;
-  left: 200px;
-  width: calc(100% - 200px);
+  /* left: 200px; */
+  /* width: calc(100% - 200px); */
+  width: 100%;
   height: calc(100% - 150px - 70px);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  padding: 0 2rem;
+  background-color: #222629;
+  z-index: -2;
+  overflow: hidden;
+  border-bottom: 1px solid #eee;
 }
 
 
@@ -103,12 +115,47 @@ svg {
   width: 85%;
 }
 
+
+.svg-1 {
+  position: absolute;
+  width: 145%;
+  height: calc(100% - 150px - 70px);
+  display: block;
+  z-index: -1;
+}
+svg.one {
+  width: 100%;
+}
+
+svg.medical {
+  margin-left: 50px;
+}
+
 .landing-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-family: "Dosis", sans-serif;
+  color: #eee;
+
 }
+
+.landing-content h1 {
+  font-size: 50px;
+  text-shadow: 1px 2px 2px #333;
+}
+
+.landing-content .covid {
+  color: #32cd32;
+  text-shadow: 1px 3px 2px green;
+}
+
+.landing-content p {
+  color: #eee;
+}
+
+
 
 
 /* The typing effect */

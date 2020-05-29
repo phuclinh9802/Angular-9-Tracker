@@ -1,11 +1,25 @@
-<div class="news-wrapper">
-    <h2 class="latest"><i class="fa fa-star" aria-hidden="true"></i> Latest News <i class="fa fa-star" aria-hidden="true"></i></h2>
-    <div class="box"> 
-        <div class="component" *ngFor="let n of news">  
-            <h2><a href="{{n.url}}"><i class="fa fa-angle-right" aria-hidden="true"></i> {{n.title}}</a></h2>
-            <p *ngIf="n.publishedAt">Published at {{ n.publishedAt | date:'MM/dd/yyyy'}}</p>
-            <p *ngIf="n.author">By {{n.author}}</p>
-            <p *ngIf="n.description">{{n.description}}</p>
+<div class="news">
+    <div class="headlines">
+        <img class="img-head" src="{{ news[index].urlToImage }}" alt="">
+        <div class="not-img">
+            <h2 class="header">{{ news[index].title }}</h2>
+            <p *ngIf="news[index].publishedAt">Published at {{ news[index].publishedAt | date:'MM/dd/yyyy'}}</p>
+            <p *ngIf="news[index].author">By {{news[index].author}}</p>
+            <p *ngIf="news[index].description">{{news[index].description}}...</p>
+        </div>
+        
+    </div>
+    
+    <div class="another-news">
+        <h2 class="latest"><i class="fa fa-star" aria-hidden="true"></i> Other News <i class="fa fa-star" aria-hidden="true"></i></h2>
+        <div class="box"> 
+            <div class="component" *ngFor="let n of news | slice: 1">  
+                <h2><a href="{{n.url}}"><i class="fa fa-angle-right" aria-hidden="true"></i> {{n.title}}</a></h2>
+                <p *ngIf="n.publishedAt">Published at {{ n.publishedAt | date:'MM/dd/yyyy'}}</p>
+                <p *ngIf="n.author">By {{n.author}}</p>
+                <p *ngIf="n.description">{{n.description}}...</p>
+            </div>
         </div>
     </div>
+    
 </div>
