@@ -17,7 +17,7 @@
                 <h2><a href="{{n.url}}"><i class="fa fa-angle-right" aria-hidden="true"></i> {{n.title}}</a></h2>
                 <p *ngIf="n.publishedAt">Published at {{ n.publishedAt | date:'MM/dd/yyyy'}}</p>
                 <p *ngIf="n.author">By {{n.author}}</p>
-                <p *ngIf="n.description">{{n.description}}...</p>
+                <p *ngIf="n.description">{{n.description}} ...</p>
             </div>
         </div>
     </div>
