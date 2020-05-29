@@ -57,8 +57,8 @@
   /* width: calc(100% - 200px); */
   width: 100%;
   height: 70px;
-  font-family: 'Yanone Kaffeesatz', sans-serif;
-  letter-spacing: 2px;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
   /* border-bottom: 1px solid #333; */
 }
 
@@ -70,17 +70,25 @@
   padding-top: 10px;
   list-style: none;
 }
+
+.navbar ul li span#n {
+  color: red;
+}
 .navbar ul li a{
   padding: 20px;
   color: #eee;
   text-decoration: none;
 }
 
+.navbar ul li.middle {
+  padding: 0 10px;
+}
 .navbar a#lo {
-  background-color: #DC143C;
+  /* background-color: #DC143C; */
   cursor: pointer;
   color: #eeeeee;
   border-radius: 4px;
+  transition: 0.3s;
 }
 
 .navbar ul li:nth-child(1) {
@@ -88,6 +96,11 @@
 }
 .navbar ul li#logout{
   margin-left: auto;
+  
+}
+
+.navbar ul li a#lo:hover {
+  background-color: #DC143C;
 }
 
 .landing-page {

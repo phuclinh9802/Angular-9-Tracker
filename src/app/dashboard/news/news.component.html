@@ -1,8 +1,8 @@
 <div class="news">
     <div class="headlines">
-        <img class="img-head" src="{{ news[index].urlToImage }}" alt="">
+        <a href="{{news[index].url}}"><img class="img-head" src="{{ news[index].urlToImage }}" alt=""></a>
         <div class="not-img">
-            <h2 class="header">{{ news[index].title }}</h2>
+            <h2 class="header"><a class="title" href="{{news[index].url}}">{{ news[index].title }}</a></h2>
             <p *ngIf="news[index].publishedAt">Published at {{ news[index].publishedAt | date:'MM/dd/yyyy'}}</p>
             <p *ngIf="news[index].author">By {{news[index].author}}</p>
             <p *ngIf="news[index].description">{{news[index].description}}...</p>
