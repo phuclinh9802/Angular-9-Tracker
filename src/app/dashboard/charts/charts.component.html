@@ -1,1 +1,29 @@
-<p>charts works!</p>
+<div class="chart-content">
+    <div class="charts">
+        <h2 class="topic">Display Chart</h2>
+        <div class="custom-select">
+            <select (change)="getCountry($event.target.value)">
+                <option>All</option>
+                <option *ngFor="let country of countries" value="{{country.Country}}">
+                    {{ country.Country }}
+                </option>
+            </select>
+        </div>
+        <button class="btn btn-primary" (click)="getInfo()">Get Info</button>
+        <button class="btn btn-success" id="showButton" (click)="showChart()">Show Chart</button>
+        <button class="btn btn-danger" id="clear" (click)="clear()">Clear</button>
+        <!-- <ul>
+            <li *ngFor="let confirmed of confirmArray">
+                {{ confirmed }}
+            </li>
+        </ul> -->
+    
+        <div class="chart-container">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+    <div class="data">
+        Hello
+    </div>
+</div>
+

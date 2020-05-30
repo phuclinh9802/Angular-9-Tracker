@@ -1,0 +1,31 @@
+.chart-content {
+    position: absolute;
+    top: calc(70px + (100% - 150px - 70px) + (100% - 100px));
+    width: 100%;
+    height: calc(100% - 100px);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 10px;
+    
+}
+
+select {
+    background: #333;
+    color: white;
+}
+
+option {
+    border-top: 1px solid #eee;
+}
+
+.topic {
+    font-family: 'Lato', sans-serif;
+    color: #F4B41A;
+
+}
+
+.chart-container {
+    position: absolute;
+    width: 60vw;
+    height: calc(100% - 200px - 10px);
+}

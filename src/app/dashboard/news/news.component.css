@@ -6,6 +6,7 @@
     height: calc(100% - 100px);
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    overflow: hidden;
   }
 .headlines {
     color: white;
