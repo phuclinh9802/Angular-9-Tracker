@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { CoronaService} from 'src/app/service/corona.service';
-import { Chart } from 'node_modules/chart.js';
 
+import { CoronaService } from 'src/app/service/corona.service';
+import { Chart } from 'node_modules/chart.js'
+
+
+
+// >>>>>>> 9d07a3afaae2f068bafa61d6d05b1548dff09c9d
 
 @Component({
   selector: 'app-charts',
@@ -9,12 +13,17 @@ import { Chart } from 'node_modules/chart.js';
   styleUrls: ['./charts.component.css']
 })
 export class ChartsComponent implements OnInit {
-
   countries: any;
   confirmed: any;
   recovered: any;
   deaths: any;
   country: any;
+
+  // countries: any;
+  // confirmed: any;
+  // recovered: any;
+  // deaths: any;
+  // country: any;
 
   confirmArray: Number[] = [];
   recoverArray: Number[] = [];

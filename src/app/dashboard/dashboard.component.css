@@ -60,6 +60,7 @@
   font-family: 'Lato', sans-serif;
   letter-spacing: 1px;
   /* border-bottom: 1px solid #333; */
+  overflow: hidden;
 }
 
 .navbar ul {
@@ -135,7 +136,7 @@ svg {
 
 .svg-1 {
   position: absolute;
-  width: 155%;
+  width: 170%;
   height: 100%;
   display: block;
   z-index: -1;
@@ -169,6 +170,7 @@ svg.medical {
 }
 
 .landing-content p {
+  font-size: 20px;
   color: #eee;
   font-size: 22px;
 }
