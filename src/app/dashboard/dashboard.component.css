@@ -38,12 +38,12 @@
   }
 
 .main {
-  position: absolute;
+  position: relative;
   display: flex;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 70px;
   animation: appear 0.5s;
   animation-delay: 7s;
   animation-duration: 3s;
@@ -56,7 +56,7 @@
   /* left: 200px; */
   /* width: calc(100% - 200px); */
   width: 100%;
-  height: 70px;
+  height: 100%;
   font-family: 'Lato', sans-serif;
   letter-spacing: 1px;
   /* border-bottom: 1px solid #333; */
@@ -66,7 +66,7 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  height: 70px;
+  height: 100%;
   padding-top: 10px;
   list-style: none;
 }
@@ -103,13 +103,17 @@
   background-color: #DC143C;
 }
 
+/* .main-2 {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 150px - 70px);
+} */
 .landing-page {
-  position: absolute;
-  top: 70px;
+  position: relative;
   /* left: 200px; */
   /* width: calc(100% - 200px); */
   width: 100%;
-  height: calc(100% - 150px - 70px);
+  height: calc(100vh - 70px);
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   background-color: #222629;
@@ -125,14 +129,14 @@
   align-items: center;
 }
 svg { 
-  width: 85%;
+  width: 100%;
 }
 
 
 .svg-1 {
   position: absolute;
-  width: 145%;
-  height: calc(100% - 150px - 70px);
+  width: 155%;
+  height: 100%;
   display: block;
   z-index: -1;
 }
@@ -155,7 +159,7 @@ svg.medical {
 }
 
 .landing-content h1 {
-  font-size: 50px;
+  font-size: 70px;
   text-shadow: 1px 2px 2px #333;
 }
 
@@ -166,6 +170,7 @@ svg.medical {
 
 .landing-content p {
   color: #eee;
+  font-size: 22px;
 }
 
 
@@ -202,3 +207,21 @@ svg.medical {
      opacity: 0;
    }
  }
+
+@media only screen and (max-width: 1400px) {
+  .landing-content h1 {
+    font-size: 60px;
+  }
+  .landing-content p {
+    color: #eee;
+    font-size: 20px;
+  }
+
+  svg { 
+    width: 90%;
+  }
+
+  .svg-1 {
+    width: 160%;
+  }
+}

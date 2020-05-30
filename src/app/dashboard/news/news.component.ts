@@ -25,6 +25,11 @@ export class NewsComponent implements OnInit {
     return Math.floor(Math.random() * Math.floor(max));
   }
 
-  
+  isImage(): any {
+    while (this.news[this.index].urlToImage == null) {
+      this.index = this.getRandomInt(19);
+    }
+    return this.index;      
+  }
 
 }
