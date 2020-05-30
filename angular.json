@@ -29,8 +29,7 @@
               
             ],
             "scripts": [
-              "src/app.js",
-              "node_modules/angular-chart/angular-chart.js"
+              "src/app.js"
             ]
           },
           "configurations": {
