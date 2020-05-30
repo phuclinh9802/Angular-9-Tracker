@@ -1,14 +1,19 @@
-.chart-content {
-    position: absolute;
-    top: calc(70px + (100% - 150px - 70px) + (100% - 100px));
+.charts-data {
+    position: relative;
     width: 100%;
-    height: calc(100% - 100px);
+    height: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    padding: 0 10px;
-    
+    padding: 50px 0;
 }
 
+.chart {
+    padding: 20px;
+}
+
+.canvas {
+    margin: 0 auto;
+}
 select {
     background: #333;
     color: white;
@@ -20,12 +25,8 @@ option {
 
 .topic {
     font-family: 'Lato', sans-serif;
-    color: #F4B41A;
+    color: #32cd32;
+    text-shadow: 1px 2px 2px green;
+    padding: 20px 0;
 
-}
-
-.chart-container {
-    position: absolute;
-    width: 60vw;
-    height: calc(100% - 200px - 10px);
 }

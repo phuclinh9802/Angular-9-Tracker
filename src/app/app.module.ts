@@ -34,7 +34,7 @@ export function tokenGetter() {
     RegisterComponent,
     NewsComponent,
     ChartsComponent,
-    SidebarComponent
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,

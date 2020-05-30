@@ -1,6 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { CoronaService } from 'src/app/service/corona.service';
 import { Chart } from 'node_modules/chart.js'
+=======
+import { CoronaService} from 'src/app/service/corona.service';
+import { Chart } from 'node_modules/chart.js';
+
+>>>>>>> 9d07a3afaae2f068bafa61d6d05b1548dff09c9d
 
 @Component({
   selector: 'app-charts',
@@ -14,11 +20,22 @@ export class ChartsComponent implements OnInit {
   deaths: any;
   country: any;
 
+<<<<<<< HEAD
+=======
+  countries: any;
+  confirmed: any;
+  recovered: any;
+  deaths: any;
+  country: any;
+
+>>>>>>> 9d07a3afaae2f068bafa61d6d05b1548dff09c9d
   confirmArray: Number[] = [];
   recoverArray: Number[] = [];
   deathArray: Number[] = [];
   days: Number[] = [];
   day: any = 0;
+  myChart: any;
+
   constructor(private corona : CoronaService) { }
 
   ngOnInit(): void {
@@ -44,13 +61,12 @@ export class ChartsComponent implements OnInit {
     
   }
   showChart(): void {
+
     var button = document.getElementById("showButton");
-
-    button.addEventListener("click", function(){
-      myChart.destroy();
-    });
-
-    var myChart = new Chart("myChart", {
+    if (this.myChart != undefined) {
+        this.myChart.destroy();
+    }
+    this.myChart = new Chart("myChart", {
       type: 'line',
       data: {
 
@@ -84,8 +100,11 @@ export class ChartsComponent implements OnInit {
         ]
       },
       options: {
-        responsive: true,
-        maintainAspectRatio: false,
+          responsive: true,
+          maintainAspectRatio: false,
+          legend: {
+              onClick: (e) => e.stopPropagation()
+          },
         scales: {
           xAxes: [{
             scaleLabel: {
@@ -119,16 +138,7 @@ export class ChartsComponent implements OnInit {
           }]
         }
       }
-      // options: {
-      //   responsive: true,
-      //   animation: {
-      //     duration: 0.5
-      //   }
-      // }
     });
-
-
-    //this.clear();
 
   }
 
@@ -138,10 +148,14 @@ export class ChartsComponent implements OnInit {
     this.deathArray = [];
     this.recoverArray = [];
     this.days = [];
+
     var button = document.getElementById("clear");
+    if (this.myChart != undefined) {
+        this.myChart.destroy();
+    }
 
 
-    var myChart = new Chart("myChart", {
+    this.myChart = new Chart("myChart", {
       type: 'line',
       data: {
 
@@ -175,8 +189,11 @@ export class ChartsComponent implements OnInit {
         ]
       },
       options: {
-        responsive: true,
-        maintainAspectRatio: false,
+          responsive: true,
+          maintainAspectRatio: false,
+          legend: {
+              onClick: (e) => e.stopPropagation()
+          },
         scales: {
           xAxes: [{
             scaleLabel: {
@@ -218,9 +235,6 @@ export class ChartsComponent implements OnInit {
       // }
     });
 
-    button.addEventListener("click", function(){
-      myChart.destroy();
-    });
   }
 
 }

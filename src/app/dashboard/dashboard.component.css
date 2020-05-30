@@ -39,7 +39,7 @@
 
 .main {
   position: relative;
-  /* display: flex; */
+  display: flex;
   top: 0;
   left: 0;
   width: 100%;
@@ -104,6 +104,11 @@
   background-color: #DC143C;
 }
 
+/* .main-2 {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 150px - 70px);
+} */
 .landing-page {
   position: relative;
   /* left: 200px; */
@@ -125,7 +130,7 @@
   align-items: center;
 }
 svg { 
-  width: 85%;
+  width: 100%;
 }
 
 
@@ -155,7 +160,7 @@ svg.medical {
 }
 
 .landing-content h1 {
-  font-size: 60px;
+  font-size: 70px;
   text-shadow: 1px 2px 2px #333;
 }
 
@@ -167,7 +172,7 @@ svg.medical {
 .landing-content p {
   font-size: 20px;
   color: #eee;
-  padding-bottom: 10px;
+  font-size: 22px;
 }
 
 
@@ -204,3 +209,21 @@ svg.medical {
      opacity: 0;
    }
  }
+
+@media only screen and (max-width: 1400px) {
+  .landing-content h1 {
+    font-size: 60px;
+  }
+  .landing-content p {
+    color: #eee;
+    font-size: 20px;
+  }
+
+  svg { 
+    width: 90%;
+  }
+
+  .svg-1 {
+    width: 160%;
+  }
+}
