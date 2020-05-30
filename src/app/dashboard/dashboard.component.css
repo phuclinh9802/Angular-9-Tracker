@@ -125,7 +125,7 @@
   grid-template-columns: repeat(2, 1fr);
   background-color: #222629;
   z-index: -2;
-  overflow: hidden;
+  overflow: hidden; 
   /* border-bottom: 1px solid #eee; */
 }
 
@@ -237,5 +237,20 @@ svg.medical {
 
   .svg-1 {
     width: 160%;
+  }
+}
+
+@media only screen and (max-width: 1080px) {
+  .landing-page {
+    height: 100%;
+  }
+  .landing-content h1 {
+    font-size: 55px;
+  }
+  .landing-content p {
+    font-size: 20px;
+  }
+  svg { 
+    width: 80%;
   }
 }
