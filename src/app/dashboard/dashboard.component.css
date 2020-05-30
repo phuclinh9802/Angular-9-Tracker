@@ -253,4 +253,7 @@ svg.medical {
   svg { 
     width: 80%;
   }
+  .svg-1 {
+    width: 180%;
+  }
 }

@@ -48,3 +48,14 @@ option {
     padding: 20px 0;
 
 }
+
+.data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.table {
+    width: 80%;
+    height: 75%;
+    border: 1px solid #eee;
+}

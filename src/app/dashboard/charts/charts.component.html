@@ -26,6 +26,13 @@
         </div>
     </div>
     <div class="data">
-        Hi
+        <div class="table">
+            <ul>
+                <li><span>Confirmed Cases:</span> {{ getConfirmed() }}</li>
+                <li><span>Recovered Cases:</span> {{ getRecovered() }}</li>
+                <li><span>Deaths: </span> {{ getDeath() }}</li>
+
+            </ul>
+        </div>
     </div>
 </div>

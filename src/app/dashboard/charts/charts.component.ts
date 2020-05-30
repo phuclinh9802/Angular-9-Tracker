@@ -50,6 +50,18 @@ export class ChartsComponent implements OnInit {
     })
     
   }
+
+  getConfirmed(): Number {
+    return this.confirmArray[this.day - 1];
+  }
+
+  getRecovered(): Number {
+    return this.recoverArray[this.day - 1];
+  }
+
+  getDeath(): Number {
+    return this.deathArray[this.day - 1];
+  }
   showChart(): void {
 
     var button = document.getElementById("showButton");
