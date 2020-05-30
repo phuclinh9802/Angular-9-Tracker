@@ -77,8 +77,7 @@ export class ChartsComponent implements OnInit {
           { 
             data: this.confirmArray,
             label: "Confirmed",
-            borderColor: "green",
-            backgroundColor: "rgba(0,128,0,0.4)",
+            borderColor: "yellow",
             fontColor: "#eee",
             fill: true
             
@@ -86,8 +85,7 @@ export class ChartsComponent implements OnInit {
           { 
             data: this.recoverArray,
             label: "Recovered",
-            borderColor: "yellow",
-            backgroundColor: "rgba(255,255,0,0.5)",
+            borderColor: "green",
             fontColor: "#eee",
             fill: true
             

@@ -56,6 +56,44 @@ option {
 }
 .table {
     width: 80%;
-    height: 75%;
-    border: 1px solid #eee;
+    height: 45%;
+    font-family: "Pacifico", sans-serif;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.table .inside {
+    z-index: 1;
+    width: 95%;
+    height: 95%;
+    background-color: #222;
+}
+.table .inside h2 {
+    text-align: center;
+    color: white;
+    font-size: 2em;
+    letter-spacing: 5px;
+}
+
+.confirmed span {
+    color: yellow;
+    text-decoration: underline;
+}
+
+.recovered span {
+    color: green;
+    text-decoration: underline;
+}
+.death span {
+    color: red;
+    text-decoration: underline;
+}
+
+.inside div {
+    color: white;
+    padding: 20px;
+    font-size: 20px;
 }
