@@ -65,8 +65,9 @@ export class ChartsComponent implements OnInit {
   showChart(): void {
 
     var button = document.getElementById("showButton");
-    if (this.myChart != undefined) {
-        this.myChart.destroy();
+    if (this.myChart == undefined) {
+        // this.myChart.update();
+        console.log(this.getConfirmed());
     }
     this.myChart = new Chart("myChart", {
       type: 'line',
