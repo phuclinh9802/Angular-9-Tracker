@@ -29,7 +29,8 @@
               
             ],
             "scripts": [
-              "src/app.js"
+              "node_modules/jquery/dist/jquery.min.js",
+              "src/assets/js/scroll.js"
             ]
           },
           "configurations": {

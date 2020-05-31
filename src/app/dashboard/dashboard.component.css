@@ -38,7 +38,7 @@
   }
 
 .main {
-  position: fixed;
+  background-color: transparent;
   display: flex;
   top: 0;
   left: 0;
@@ -51,25 +51,36 @@
   z-index: 2;
 }
 
+.main.scrolled {
+  background-color: #fff !important;
+  transition: background-color 200ms linear;
+}
 
 .navbar {
   /* left: 200px; */
   /* width: calc(100% - 200px); */
+  position: fixed;
   width: 100%;
-  height: 100%;
+  height: 60px;
   font-family: 'Lato', sans-serif;
   letter-spacing: 1px;
   /* border-bottom: 1px solid #333; */
-  overflow: hidden;
 }
+
+.fixed {
+  background-color: #222629 !important;
+  transition: background-color 200ms linear;
+}
+
 
 .navbar ul {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   height: 100%;
-  padding-top: 10px;
+  padding-top: 5px;
   list-style: none;
+
 }
 
 .navbar ul li span#n {
@@ -80,6 +91,7 @@
   color: #eee;
   text-decoration: none;
   transition: 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+
 }
 
 .navbar ul li a:hover {
@@ -124,10 +136,11 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   background-color: #222629;
-  z-index: -2;
+  z-index: 2;
   overflow: hidden; 
   /* border-bottom: 1px solid #eee; */
 }
+
 
 
 .svg {
@@ -188,6 +201,49 @@ svg.medical {
 }
 
 
+.footer {
+  position: relative;
+  width: 100%;
+  height: 150px;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: repeat(2, 1fr);
+  color: white;
+  font-family: cursive;
+  border-top: 1px solid white;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icons a{
+  text-decoration: none;
+  color: white;
+  margin: 0 25px;
+  font-size: 2em;
+}
+
+
+
+.copyright {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.copyright p{
+  margin: 8px 0;
+}
+
+.copyright p.providers {
+  font-family: "Lato", sans-serif;
+  font-size: 10px;
+  color: #aaa
+}
 
 
 /* The typing effect */
