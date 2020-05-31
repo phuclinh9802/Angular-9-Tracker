@@ -20,6 +20,7 @@ using projectpractice.Models;
 using Microsoft.AspNetCore.Identity;
 using AutoMapper;
 using projectpractice.Services;
+using System.IO;
 
 namespace projectpractice
 {
@@ -81,8 +82,21 @@ namespace projectpractice
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+              app.Use(async (context, next) =>
+              {
+                await next();
+                if (context.Response.StatusCode == 404 && !Path.HasExtension(context.Request.Path.Value))
+                {
+                  context.Request.Path = "/index.html";
+                  await next();
+                }
+              });
+              app.UseHsts();
+            }
 
-            app.UseCors("CorsPolicy");
+      app.UseCors("CorsPolicy");
             app.UseHttpsRedirection();
 
             app.UseMvc();

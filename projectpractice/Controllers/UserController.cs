@@ -32,15 +32,15 @@ namespace projectpractice.Controllers
 
 
         [HttpPost, Route("register")]
-        public IActionResult Register([FromBody] RegisterModel user)
+        public IActionResult Register([FromBody] Register user)
         {
-            var users = _mapper.Map<Register>(user);
+            //var users = _mapper.Map<Register>(user);
 
             try
             {
               // create user
-              _userService.Create(users, users.Password);
-              return Ok();
+              _userService.Create(user, user.Password);
+              return Ok(user);
             }
             catch (Exception ex)
             {
@@ -73,7 +73,7 @@ namespace projectpractice.Controllers
                     issuer: "https://localhost:5001",
                     audience: "https://localhost:5001",
                     claims: claims,
-                    expires: DateTime.Now.AddMinutes(1),
+                    expires: DateTime.Now.AddHours(1),
                     signingCredentials: signinCredentials
                 );
 
@@ -95,7 +95,7 @@ namespace projectpractice.Controllers
                     issuer: "https://localhost:5001",
                     audience: "https://localhost:5001",
                     claims: claims,
-                    expires: DateTime.Now.AddMinutes(1),
+                    expires: DateTime.Now.AddMinutes(30),
                     signingCredentials: signinCredentials
                 );
 
@@ -120,7 +120,7 @@ namespace projectpractice.Controllers
                     issuer: "https://localhost:5001",
                     audience: "https://localhost:5001",
                     claims: claims,
-                    expires: DateTime.Now.AddMinutes(1),
+                    expires: DateTime.Now.AddMinutes(10),
                     signingCredentials: signinCredentials
                 );
 
