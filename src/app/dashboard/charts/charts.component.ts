@@ -39,15 +39,20 @@ export class ChartsComponent implements OnInit {
   }
   getInfo(): void {
     alert("Information has been received!");
+    this.day = 0;
     this.corona.getInfoByCountries(this.country).subscribe((data) => {
       for (let element of data) {
         this.day = this.day + 1;
         this.days.push(this.day);
         this.confirmArray.push(element.Confirmed);
+        
         this.recoverArray.push(element.Recovered);
         this.deathArray.push(element.Deaths);
       }
+      console.log(this.confirmArray);
     })
+    
+    // this.myChart.update();
     
   }
 
@@ -64,10 +69,10 @@ export class ChartsComponent implements OnInit {
   }
   showChart(): void {
 
-    var button = document.getElementById("showButton");
-    if (this.myChart != undefined) {
-        this.myChart.destroy();
-    }
+    // var button = document.getElementById("showButton");
+    // // if (this.myChart != undefined) {
+    // //     this.myChart.destroy();
+    // // }
     this.myChart = new Chart("myChart", {
       type: 'line',
       data: {
@@ -148,92 +153,90 @@ export class ChartsComponent implements OnInit {
     this.deathArray = [];
     this.recoverArray = [];
     this.days = [];
+    
 
-    var button = document.getElementById("clear");
-    if (this.myChart != undefined) {
-        this.myChart.destroy();
-    }
+    // this.myChart = new Chart("myChart", {
+    //   type: 'line',
+    //   data: {
 
-
-    this.myChart = new Chart("myChart", {
-      type: 'line',
-      data: {
-
-        labels: this.days,
-        datasets: [
-          { 
-            data: this.confirmArray,
-            label: "Confirmed",
-            borderColor: "green",
-            backgroundColor: "rgba(0,128,0,0.4)",
-            fontColor: "#eee",
-            fill: true
+    //     labels: this.days,
+    //     datasets: [
+    //       { 
+    //         data: this.confirmArray,
+    //         label: "Confirmed",
+    //         borderColor: "green",
+    //         backgroundColor: "rgba(0,128,0,0.4)",
+    //         fontColor: "#eee",
+    //         fill: true
             
-          },
-          { 
-            data: this.recoverArray,
-            label: "Recovered",
-            borderColor: "yellow",
-            backgroundColor: "rgba(255,255,0,0.5)",
-            fontColor: "#eee",
-            fill: true
+    //       },
+    //       { 
+    //         data: this.recoverArray,
+    //         label: "Recovered",
+    //         borderColor: "yellow",
+    //         backgroundColor: "rgba(255,255,0,0.5)",
+    //         fontColor: "#eee",
+    //         fill: true
             
-          },
-          { 
-            data: this.deathArray,
-            label: "Deaths",
-            borderColor: "red",
-            fontColor: "#eee",
-            fill: true
-          }
-        ]
-      },
-      options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          legend: {
-              onClick: (e) => e.stopPropagation()
-          },
-        scales: {
-          xAxes: [{
-            scaleLabel: {
-              display: true,
-              labelString: 'Total # of Days',
-              fontColor: '#eee'
-            },
-            gridLines: {
-              display: true,
-              color: '#aaa',
-              lineWidth: 1
-            },
-            ticks: {
-              fontColor: "white",
-            }
-          }],
-          yAxes: [{
-            scaleLabel: {
-              display: true,
-              labelString: '# of People',
-              fontColor: '#eee'
-            },
-            gridLines: {
-              display: true,
-              color: '#aaa',
-              lineWidth: 1
-            },
-            ticks: {
-              fontColor: "white",
-            }
-          }]
-        }
-      }
-      // options: {
-      //   responsive: true,
-      //   animation: {
-      //     duration: 0.5
-      //   }
-      // }
-    });
+    //       },
+    //       { 
+    //         data: this.deathArray,
+    //         label: "Deaths",
+    //         borderColor: "red",
+    //         fontColor: "#eee",
+    //         fill: true
+    //       }
+    //     ]
+    //   },
+    //   options: {
+    //       responsive: true,
+    //       maintainAspectRatio: false,
+    //       legend: {
+    //           onClick: (e) => e.stopPropagation()
+    //       },
+    //     scales: {
+    //       xAxes: [{
+    //         scaleLabel: {
+    //           display: true,
+    //           labelString: 'Total # of Days',
+    //           fontColor: '#eee'
+    //         },
+    //         gridLines: {
+    //           display: true,
+    //           color: '#aaa',
+    //           lineWidth: 1
+    //         },
+    //         ticks: {
+    //           fontColor: "white",
+    //         }
+    //       }],
+    //       yAxes: [{
+    //         scaleLabel: {
+    //           display: true,
+    //           labelString: '# of People',
+    //           fontColor: '#eee'
+    //         },
+    //         gridLines: {
+    //           display: true,
+    //           color: '#aaa',
+    //           lineWidth: 1
+    //         },
+    //         ticks: {
+    //           fontColor: "white",
+    //         }
+    //       }]
+    //     }
+    //   }
+    //   // options: {
+    //   //   responsive: true,
+    //   //   animation: {
+    //   //     duration: 0.5
+    //   //   }
+    //   // }
+    // });
+
+    this.myChart.destroy();
+
 
   }
 
