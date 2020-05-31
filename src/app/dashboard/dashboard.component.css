@@ -33,29 +33,222 @@
     margin: 0 auto; 
     letter-spacing: .15em;
     animation: 
-      typing 5s steps(40, end),
-      blink-caret .5s step-end infinite;
+      typing 5s steps(50, end),
+      blink-caret .75s step-end infinite;
   }
 
 .main {
-  position: absolute;
+  background-color: transparent;
+  display: flex;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 70px;
   animation: appear 0.5s;
   animation-delay: 7s;
   animation-duration: 3s;
   animation-fill-mode: forwards;
-  visibility: hidden;
-  opacity: 0;
+  z-index: 2;
+}
+
+.main.scrolled {
+  background-color: #fff !important;
+  transition: background-color 200ms linear;
+}
+
+.navbar {
+  /* left: 200px; */
+  /* width: calc(100% - 200px); */
+  position: fixed;
+  width: 100%;
+  height: 60px;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 1px;
+  /* border-bottom: 1px solid #333; */
+}
+
+.fixed {
+  background-color: #222629 !important;
+  transition: background-color 200ms linear;
+}
+
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  padding-top: 5px;
+  list-style: none;
+
+}
+
+.navbar ul li span#n {
+  color: red;
+}
+.navbar ul li a{
+  padding: 20px;
+  color: #eee;
+  text-decoration: none;
+  transition: 0.3s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+
+}
+
+.navbar ul li a:hover {
+  opacity: 0.5;
+}
+
+.navbar ul li.middle {
+  padding: 0 10px;
+}
+.navbar a#lo {
+  /* background-color: #DC143C; */
+  cursor: pointer;
+  color: #eeeeee;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.navbar ul li:nth-child(2) {
+  margin-right: auto;
+}
+.navbar ul li:nth-child(7){
+  margin-left: auto;
+}
+
+.navbar ul li a#lo:hover {
+  background-color: #DC143C;
+  opacity: 1;
+}
+
+/* .main-2 {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 150px - 70px);
+} */
+.landing-page {
+  position: relative;
+  /* left: 200px; */
+  /* width: calc(100% - 200px); */
+  width: 100%;
+  height: calc(100vh);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: #222629;
+  z-index: 2;
+  overflow: hidden; 
+  /* border-bottom: 1px solid #eee; */
+}
+
+
+
+.svg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+svg { 
+  width: 100%;
+}
+
+
+.svg-1 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: -1;
+}
+
+.svg-1 svg {
+  margin-left: -15%;
+}
+svg.one {
+  width: 100%;
+}
+
+svg.medical {
+  margin-left: 50px;
+}
+
+.landing-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Dosis", sans-serif;
+  color: #eee;
+
+}
+
+.landing-content h1 {
+  font-size: 70px;
+  text-shadow: 1px 2px 2px #333;
+}
+
+.landing-content .covid {
+  /* color: #32cd32; */
+  color: rgb(178,34,34);
+
+  text-shadow: 1px 3px 2px red;
+}
+
+.landing-content p {
+  font-size: 20px;
+  color: #eee;
+  font-size: 22px;
+}
+
+
+.footer {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: repeat(2, 1fr);
+  color: white;
+  font-family: cursive;
+  background-color: black;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icons a{
+  text-decoration: none;
+  color: white;
+  margin: 0 25px;
+  font-size: 2em;
+}
+
+
+
+.copyright {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.copyright p{
+  margin: 8px 0;
+}
+
+.copyright p.providers {
+  font-family: "Lato", sans-serif;
+  font-size: 10px;
+  color: #aaa
 }
 
 
 /* The typing effect */
 @keyframes typing {
     from { width: 0 }
-    to { width: 33% }
+    to { width: 47% }
 }
 
 /* The typewriter cursor effect */
@@ -65,17 +258,57 @@
 }
 
 @keyframes appear {
+  0% {
+    opacity: 0;
+  }
   100% {
-    visibility: visible;
     opacity: 1;
+    display: block;
   }
 }
 
  @keyframes hide {
-   0% {
-     opacity: 1;
-   }
+   /* 0% {
+     display: flex;
+   } */
    100% {
+     z-index: -99;
      opacity: 0;
    }
  }
+
+@media only screen and (max-width: 1440px) {
+  .landing-content h1 {
+    font-size: 60px;
+  }
+  .landing-content p {
+    color: #eee;
+    font-size: 20px;
+  }
+
+  svg { 
+    width: 90%;
+  }
+
+  .svg-1 {
+    width: 160%;
+  }
+}
+
+@media only screen and (max-width: 1080px) {
+  .landing-page {
+    height: 100%;
+  }
+  .landing-content h1 {
+    font-size: 55px;
+  }
+  .landing-content p {
+    font-size: 20px;
+  }
+  svg { 
+    width: 80%;
+  }
+  .svg-1 {
+    width: 180%;
+  }
+}
