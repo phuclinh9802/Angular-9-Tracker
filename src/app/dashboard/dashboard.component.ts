@@ -16,7 +16,6 @@ export class DashboardComponent implements OnInit {
   }
 
 
-
   isUserAuthenticated() {
     let token: string = localStorage.getItem("jwt");
     if (token && !this.jwtHelper.isTokenExpired(token)) {
