@@ -1,3 +1,8 @@
+.charts {
+    width: 100%;
+    height: calc(100px + 100%);
+
+}
 .title {
     position: relative;
     width: 100%;
@@ -14,7 +19,6 @@
 
 .title .head {
     text-shadow: 1px 2px 2px #111;
-    border-top: 1px dashed #0aea02;
     width: 80%;
     height: 90%;
     margin: 0;

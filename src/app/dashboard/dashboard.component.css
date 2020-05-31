@@ -210,7 +210,7 @@ svg.medical {
   grid-template-rows: repeat(2, 1fr);
   color: white;
   font-family: cursive;
-  border-top: 1px solid white;
+  background-color: black;
 }
 
 .social-icons {

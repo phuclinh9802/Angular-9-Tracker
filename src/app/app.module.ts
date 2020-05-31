@@ -18,6 +18,7 @@ import { NewsComponent } from './dashboard/news/news.component';
 import { ChartsComponent } from './dashboard/charts/charts.component';
 import { UserService } from './user-service.service';
 import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
+import { UsersComponent } from './users/users.component';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -35,6 +36,7 @@ export function tokenGetter() {
     NewsComponent,
     ChartsComponent,
     SidebarComponent,
+    UsersComponent,
   ],
   imports: [
     BrowserModule,
