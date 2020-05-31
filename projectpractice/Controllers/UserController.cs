@@ -70,8 +70,8 @@ namespace projectpractice.Controllers
                 };
 
                 var tokeOptions = new JwtSecurityToken(
-                    issuer: "https://localhost:5001",
-                    audience: "https://localhost:5001",
+                    issuer: "https://127.0.0.1:5001",
+                    audience: "https://127.0.0.1:5001",
                     claims: claims,
                     expires: DateTime.Now.AddHours(1),
                     signingCredentials: signinCredentials
@@ -92,8 +92,8 @@ namespace projectpractice.Controllers
                 };
 
                 var tokeOptions = new JwtSecurityToken(
-                    issuer: "https://localhost:5001",
-                    audience: "https://localhost:5001",
+                    issuer: "https://127.0.0.1:5001",
+                    audience: "https://127.0.0.1:5001",
                     claims: claims,
                     expires: DateTime.Now.AddMinutes(30),
                     signingCredentials: signinCredentials
@@ -117,8 +117,8 @@ namespace projectpractice.Controllers
                 };
 
                 var tokeOptions = new JwtSecurityToken(
-                    issuer: "https://localhost:5001",
-                    audience: "https://localhost:5001",
+                    issuer: "https://127.0.0.1:5001",
+                    audience: "https://127.0.0.1:5001",
                     claims: claims,
                     expires: DateTime.Now.AddMinutes(10),
                     signingCredentials: signinCredentials

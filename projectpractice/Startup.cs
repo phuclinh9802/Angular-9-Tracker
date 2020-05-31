@@ -50,8 +50,8 @@ namespace projectpractice
                     ValidateLifetime = true,
                     ValidateIssuerSigningKey = true,
 
-                    ValidIssuer = "https://localhost:5001",
-                    ValidAudience = "https://localhost:5001",
+                    ValidIssuer = "https://127.0.0.1:5001",
+                    ValidAudience = "https://127.0.0.1:5001",
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("PhilliplovesNguyet"))
                 };
     });
@@ -62,7 +62,7 @@ namespace projectpractice
 
             services.AddCors(options => {
                 options.AddPolicy("CorsPolicy",
-                    builder => builder.WithOrigins("http://localhost:4200")
+                    builder => builder.WithOrigins("http://phuclinh9802.github.io/Angular-9-Tracker")
                     .AllowAnyHeader()
                     .AllowAnyMethod()
                     .AllowCredentials()
