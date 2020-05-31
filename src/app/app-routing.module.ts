@@ -7,6 +7,7 @@ import { AuthGuardService as AuthGuard} from './service/auth-guard.service';
 import { LoginComponent } from './registerlogin/login/login.component';
 import { RegisterComponent } from './registerlogin/register/register.component';
 import { UsersComponent } from './users/users.component';
+import { ComingsoonComponent } from './comingsoon/comingsoon.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: '', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
-  { path: 'users', component: UsersComponent, canActivate: [AuthGuard]}
+  { path: 'users', component: UsersComponent, canActivate: [AuthGuard]},
+  { path: 'coming-soon', component: ComingsoonComponent}
 ];
 
 @NgModule({

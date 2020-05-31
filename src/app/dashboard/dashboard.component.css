@@ -109,12 +109,11 @@
   transition: 0.3s;
 }
 
-.navbar ul li:nth-child(1) {
+.navbar ul li:nth-child(2) {
   margin-right: auto;
 }
-.navbar ul li#logout{
+.navbar ul li:nth-child(7){
   margin-left: auto;
-  
 }
 
 .navbar ul li a#lo:hover {

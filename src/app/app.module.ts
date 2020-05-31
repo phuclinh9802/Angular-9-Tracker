@@ -19,6 +19,7 @@ import { ChartsComponent } from './dashboard/charts/charts.component';
 import { UserService } from './user-service.service';
 import { SidebarComponent } from './dashboard/sidebar/sidebar.component';
 import { UsersComponent } from './users/users.component';
+import { ComingsoonComponent } from './comingsoon/comingsoon.component';
 
 export function tokenGetter() {
   return localStorage.getItem("jwt");
@@ -37,6 +38,7 @@ export function tokenGetter() {
     ChartsComponent,
     SidebarComponent,
     UsersComponent,
+    ComingsoonComponent,
   ],
   imports: [
     BrowserModule,
