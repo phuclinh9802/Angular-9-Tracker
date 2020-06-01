@@ -2,6 +2,11 @@ import requests
 import json
 import csv
 import pandas as pd
+import pymysql
+from datetime import datetime as dt
+
+
+
 
 url = ('http://newsapi.org/v2/top-headlines?'
        'country=us&'
@@ -85,29 +90,18 @@ with open(input_file, "r") as source:
 
 
 
-# with open(read_json) as json_file:
-#     data = json.load(read_json)
-#
-# employee_data = data['articles']
-#
-# # now we will open a file for writing
-# data_file = open('news_test.csv', 'w')
-#
-# # create the csv writer object
-# csv_writer = csv.writer(data_file)
-#
-# # Counter variable used for writing
-# # headers to the CSV file
-# count = 0
-#
-# for emp in employee_data:
-#     if count == 0:
-#         # Writing headers of CSV file
-#         header = emp.keys()
-#         csv_writer.writerow(header)
-#         count += 1
-#
-#     # Writing data of CSV file
-#     csv_writer.writerow(emp.values())
-#
-# data_file.close()
+from dateutil.parser import parse
+
+get_date_obj = parse('2020-06-01T16:13:20Z')
+print(type(get_date_obj))
+
+mydb = pymysql.connect( host='localhost', user='root', passwd="Linhphuc9802", db="newmovie")
+cursor = mydb.cursor()
+csv_data = csv.reader(open('news.csv'))
+
+next(csv_data)
+for row in csv_data:
+    cursor.execute('INSERT INTO news(id, name, content, description, publishedAt, title, url, urlToImage) VALUES (%s, %s, %s, %s, %s , %s, %s, %s)', row)
+
+mydb.commit()
+cursor.close()
