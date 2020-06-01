@@ -62,7 +62,7 @@ namespace projectpractice
 
             services.AddCors(options => {
                 options.AddPolicy("CorsPolicy",
-                    builder => builder.WithOrigins("http://phuclinh9802.github.io/Angular-9-Tracker")
+                    builder => builder.WithOrigins("https://phuclinh9802.github.io", "http://localhost:4200")
                     .AllowAnyHeader()
                     .AllowAnyMethod()
                     .AllowCredentials()

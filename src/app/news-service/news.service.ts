@@ -10,7 +10,7 @@ export class NewsService {
   constructor(private http: HttpClient) { }
 
   getAllNews(): Observable<any> {
-    const url = "http://newsapi.org/v2/top-headlines?country=us&category=health&apiKey=25acb99ee9c14efa9cbc84ee5761722b";
+    const url = "https://localhost:5001/api/get_news";
     return this.http.get(url);
   }
 }

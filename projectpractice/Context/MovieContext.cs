@@ -16,5 +16,6 @@ namespace projectpractice.Context
         public DbSet<NewMovie> NewMovie { get; set; }
         public DbSet<Identity> UserIdentity { get; set; }
         public DbSet<Register> Users { get; set; }
+        public DbSet<News> NewsAPI { get; set; }
     }
 }
