@@ -6,102 +6,108 @@ import pymysql
 from datetime import datetime as dt
 
 
+def get_api(url):
+    response = requests.get(url)
+    read_json = response.json()
+
+    return read_json
 
 
-url = ('http://newsapi.org/v2/top-headlines?'
-       'country=us&'
-       'apiKey=25acb99ee9c14efa9cbc84ee5761722b')
-response = requests.get(url)
+def save_news_data_to_csv(url):
+    # get api from 3rd party
+    read_json = get_api(url)
 
-read_json = response.json()
+    # save api data to json file
+    with open('news_test.json', 'w') as file:
+        json.dump(read_json, file, sort_keys=True, indent=4)
 
+    with open("news_test.json") as json_file:
+        data = json.load(json_file)
 
-with open('news_test.json', 'w') as file:
-  json.dump(read_json, file, sort_keys=True, indent=4)
+    articles = data['articles']
 
-with open("news_test.json") as json_file:
-  data = json.load(json_file)
+    titles = list(articles[0].keys())
 
+    slice_object = slice(1, len(titles))
 
-articles = data['articles']
+    titles = titles[slice_object]
 
-titles = list(articles[0].keys())
+    titles.insert(0, 'id')
+    titles.insert(1, 'name')
 
-slice_object = slice(1, len(titles))
+    # one list of values
+    tab = []
+    leng = len(data['articles'])
+    values = []
+    i = 0
+    for x in range(leng):
+        values = list(articles[x].values())
+        slice_values = slice(1, len(values))
+        values = values[slice_values]
+        name = data['articles'][x]['source']['name']
+        values.insert(0, name)
+        tab.append(values)
+        i += 1
+        tab[x].insert(0, i)
 
-titles = titles[slice_object]
+    data_file = open('news_test.csv', 'w')
 
-titles.insert(0, 'id')
-titles.insert(1, 'name')
+    # create the csv writer object
+    csv_writer = csv.writer(data_file)
 
-# one list of values
-tab = []
-leng = len(data['articles'])
-values = []
-i = 0
-for x in range(leng):
-  values = list(articles[x].values())
-  slice_values = slice(1, len(values))
-  values = values[slice_values]
-  name = data['articles'][x]['source']['name']
-  values.insert(0, name)
-  tab.append(values)
-  i += 1
-  tab[x].insert(0, i)
+    # Counter variable used for writing
+    # headers to the CSV file
+    count = 0
+    index = 0
 
+    csv_writer.writerow(titles)
 
-data_file = open('news_test.csv', 'w')
+    for article in articles:
+        # Writing data of CSV file
+        csv_writer.writerow(tab[index])
+        index += 1
+        count += 1
 
-# create the csv writer object
-csv_writer = csv.writer(data_file)
+    # print(count)
 
-# Counter variable used for writing
-# headers to the CSV file
-count = 0
-index = 0
+    data_file.close()
 
-csv_writer.writerow(titles)
+    input_file = 'news_test.csv'
+    output_file = 'news.csv'
+    cols_to_remove = 5  # Column indexes to be removed (starts at 0)
 
-for article in articles:
-    # Writing data of CSV file
-    csv_writer.writerow(tab[index])
-    index += 1
-    count += 1
+    row_count = 0  # Current amount of rows processed
 
-# print(count)
-
-data_file.close()
-
-input_file = 'news_test.csv'
-output_file = 'news.csv'
-cols_to_remove = 5 # Column indexes to be removed (starts at 0)
-
-row_count = 0 # Current amount of rows processed
-
-with open(input_file, "r") as source:
-    reader = csv.reader(source)
-    with open(output_file, "w", newline='') as result:
-        writer = csv.writer(result)
-        for row in reader:
-            row_count += 1
-            print('\r{0}'.format(row_count), end='') # Print rows processed
-            del row[5]
-            writer.writerow(row)
+    with open(input_file, "r") as source:
+        reader = csv.reader(source)
+        with open(output_file, "w", newline='') as result:
+            writer = csv.writer(result)
+            for row in reader:
+                row_count += 1
+                print('\r{0}'.format(row_count), end='')  # Print rows processed
+                del row[5]
+                writer.writerow(row)
 
 
+# push to mysql
+def to_mysql(file):
+    mydb = pymysql.connect(host='localhost', user='root', passwd="Linhphuc9802", db="newmovie")
+    cursor = mydb.cursor()
+    csv_data = csv.reader(open(file))
 
-from dateutil.parser import parse
+    next(csv_data)
+    for row in csv_data:
+        cursor.execute(
+          'INSERT INTO news(id, name, content, description, publishedAt, title, url, urlToImage) '
+          'VALUES (%s, %s, %s, %s, %s , %s, %s, %s)',
+          row)
 
-get_date_obj = parse('2020-06-01T16:13:20Z')
-print(type(get_date_obj))
+    mydb.commit()
+    cursor.close()
 
-mydb = pymysql.connect( host='localhost', user='root', passwd="Linhphuc9802", db="newmovie")
-cursor = mydb.cursor()
-csv_data = csv.reader(open('news.csv'))
 
-next(csv_data)
-for row in csv_data:
-    cursor.execute('INSERT INTO news(id, name, content, description, publishedAt, title, url, urlToImage) VALUES (%s, %s, %s, %s, %s , %s, %s, %s)', row)
+save_news_data_to_csv(
+        'http://newsapi.org/v2/top-headlines?country=us&apiKey=25acb99ee9c14efa9cbc84ee5761722b'
+)
 
-mydb.commit()
-cursor.close()
+to_mysql("news.csv")
