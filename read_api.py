@@ -1,6 +1,7 @@
 import requests
 import json
 import csv
+import pandas as pd
 
 url = ('http://newsapi.org/v2/top-headlines?'
        'country=us&'
@@ -27,7 +28,6 @@ titles = titles[slice_object]
 
 titles.insert(0, 'id')
 titles.insert(1, 'name')
-print(titles)
 
 # one list of values
 tab = []
@@ -42,11 +42,9 @@ for x in range(leng):
   values.insert(0, name)
   tab.append(values)
   i += 1
-  print(tab[x][0])
   tab[x].insert(0, i)
 
 
-print(tab[19])
 data_file = open('news_test.csv', 'w')
 
 # create the csv writer object
@@ -60,7 +58,6 @@ index = 0
 csv_writer.writerow(titles)
 
 for article in articles:
-    print(index)
     # Writing data of CSV file
     csv_writer.writerow(tab[index])
     index += 1
@@ -69,6 +66,22 @@ for article in articles:
 # print(count)
 
 data_file.close()
+
+input_file = 'news_test.csv'
+output_file = 'news.csv'
+cols_to_remove = 5 # Column indexes to be removed (starts at 0)
+
+row_count = 0 # Current amount of rows processed
+
+with open(input_file, "r") as source:
+    reader = csv.reader(source)
+    with open(output_file, "w", newline='') as result:
+        writer = csv.writer(result)
+        for row in reader:
+            row_count += 1
+            print('\r{0}'.format(row_count), end='') # Print rows processed
+            del row[5]
+            writer.writerow(row)
 
 
 
