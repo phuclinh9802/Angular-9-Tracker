@@ -17,4 +17,4 @@
     ## Deployment:
     #### GitHub
     #### Nginx/Apache (in process)
-    #### AW
+    #### AWS
