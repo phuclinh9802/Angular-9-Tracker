@@ -84,7 +84,6 @@ def save_news_data_to_csv(url):
             writer = csv.writer(result)
             for row in reader:
                 row_count += 1
-                print('\r{0}'.format(row_count), end='')  # Print rows processed
                 del row[5]
                 writer.writerow(row)
 
@@ -105,9 +104,26 @@ def to_mysql(file):
     mydb.commit()
     cursor.close()
 
+def update_mysql(file):
+    mydb = pymysql.connect(host='localhost', user='root', passwd="Linhphuc9802", db="newmovie")
+    cursor = mydb.cursor()
+    csv_data = csv.reader(open(file))
+
+    next(csv_data)
+    for row in csv_data:
+        rows = (row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[0])
+        cursor.execute(
+          'UPDATE NewsAPI SET '
+          "name = %s, content= %s, description = %s, "
+          "publishedAt = %s, title = %s, url = %s, urlToImage = %s"
+          "WHERE id = %s", rows)
+
+    mydb.commit()
+    cursor.close()
 
 save_news_data_to_csv(
         'http://newsapi.org/v2/top-headlines?country=us&apiKey=25acb99ee9c14efa9cbc84ee5761722b'
 )
 
-to_mysql("news.csv")
+# to_mysql("news.csv")
+update_mysql("news.csv")
