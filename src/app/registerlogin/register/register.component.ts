@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
 // }
   register(registerForm: NgForm) {
     let credentials = JSON.stringify(registerForm.value);
-    this.http.post("https://localhost:5001/api/auth/register", credentials, {
+    this.http.post("http://practice-753392935.us-east-2.elb.amazonaws.com/api/auth/register", credentials, {
       headers: new HttpHeaders({
         "Content-Type": "application/json"
       })

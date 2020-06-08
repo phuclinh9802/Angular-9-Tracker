@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
   login(form: NgForm): void {
     let credentials = JSON.stringify(form.value);
     //Windows: https://localhost:5001/api/login, Mac: https://localhost:5001/api/auth/login
-    this.http.post("https://localhost:5001/api/auth/login", credentials, {
+    this.http.post("http://practice-753392935.us-east-2.elb.amazonaws.com/api/auth/login", credentials, {
       headers: new HttpHeaders({
         "Content-Type": "application/json"
       })

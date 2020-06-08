@@ -10,7 +10,7 @@ export class NewsService {
   constructor(private http: HttpClient) { }
 
   getAllNews(): Observable<any> {
-    const url = "https://localhost:5001/api/get_news";
+    const url = "http://practice-753392935.us-east-2.elb.amazonaws.com/api/get_news";
     return this.http.get(url);
   }
 }
