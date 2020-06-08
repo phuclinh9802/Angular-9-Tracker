@@ -50,10 +50,11 @@ def save_news_data_to_csv(url):
         i += 1
         tab[x].insert(0, i)
 
+
     data_file = open('news_test.csv', 'w')
 
     # create the csv writer object
-    csv_writer = csv.writer(data_file)
+    csv_writer = csv.writer(data_file, delimiter=',', lineterminator='\n')
 
     # Counter variable used for writing
     # headers to the CSV file
@@ -84,30 +85,47 @@ def save_news_data_to_csv(url):
             writer = csv.writer(result)
             for row in reader:
                 row_count += 1
-                print('\r{0}'.format(row_count), end='')  # Print rows processed
                 del row[5]
                 writer.writerow(row)
 
 
 # push to mysql
 def to_mysql(file):
-    mydb = pymysql.connect(host='localhost', user='root', passwd="Linhphuc9802", db="newmovie")
+    # mydb = pymysql.connect(host='localhost', user='root', passwd="1234", db="users")
+    mydb = pymysql.connect(host='covid-server.cqzdwek0omew.us-east-2.rds.amazonaws.com', user='admin', passwd="Linhphuc9802", db="users")
     cursor = mydb.cursor()
     csv_data = csv.reader(open(file))
 
     next(csv_data)
     for row in csv_data:
         cursor.execute(
-          'INSERT INTO news(id, name, content, description, publishedAt, title, url, urlToImage) '
+          'INSERT INTO NewsAPI(id, name, content, description, publishedAt, title, url, urlToImage) '
           'VALUES (%s, %s, %s, %s, %s , %s, %s, %s)',
           row)
 
     mydb.commit()
     cursor.close()
 
+def update_mysql(file):
+    mydb = pymysql.connect(host='covid-server.cqzdwek0omew.us-east-2.rds.amazonaws.com', user='admin', passwd="Linhphuc9802", db="users")
+    cursor = mydb.cursor()
+    csv_data = csv.reader(open(file))
+
+    next(csv_data)
+    for row in csv_data:
+        rows = (row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[0])
+        cursor.execute(
+          'UPDATE NewsAPI SET '
+          "name = %s, content= %s, description = %s, "
+          "publishedAt = %s, title = %s, url = %s, urlToImage = %s"
+          "WHERE id = %s", rows)
+
+    mydb.commit()
+    cursor.close()
 
 save_news_data_to_csv(
         'http://newsapi.org/v2/top-headlines?country=us&apiKey=25acb99ee9c14efa9cbc84ee5761722b'
 )
 
 to_mysql("news.csv")
+# update_mysql("news.csv")
