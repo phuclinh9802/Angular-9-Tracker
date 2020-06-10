@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UserService {
-  readonly uri = "https://localhost:5001/api";
+  readonly uri = "https://practice-753392935.us-east-2.elb.amazonaws.com/api";
   constructor(private http: HttpClient, private formBuilder: FormBuilder) { }
   formModel = this.formBuilder.group({
     UserName : ['', Validators.required],

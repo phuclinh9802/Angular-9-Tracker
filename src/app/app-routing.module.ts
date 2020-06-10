@@ -11,7 +11,7 @@ import { ComingsoonComponent } from './comingsoon/comingsoon.component';
 
 
 const routes: Routes = [
-  { path: 'dashboard', component : DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard', component : DashboardComponent},
   { path: 'about', component : AboutComponent},
   { path: 'tracker', component: TrackerComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent},

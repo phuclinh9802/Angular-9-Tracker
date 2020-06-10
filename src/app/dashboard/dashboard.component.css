@@ -37,24 +37,7 @@
       blink-caret .75s step-end infinite;
   }
 
-.main {
-  background-color: transparent;
-  display: flex;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 70px;
-  animation: appear 0.5s;
-  animation-delay: 7s;
-  animation-duration: 3s;
-  animation-fill-mode: forwards;
-  z-index: 2;
-}
-
-.main.scrolled {
-  background-color: #fff !important;
-  transition: background-color 200ms linear;
-}
+  
 
 .navbar {
   /* left: 200px; */
@@ -131,7 +114,7 @@
   /* left: 200px; */
   /* width: calc(100% - 200px); */
   width: 100%;
-  height: calc(100vh);
+  height: 100vh;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   background-color: #222629;
@@ -278,6 +261,9 @@ svg.medical {
  }
 
 @media only screen and (max-width: 1440px) {
+  .landing-page {
+    height: 100vh;
+  }
   .landing-content h1 {
     font-size: 60px;
   }
@@ -310,5 +296,35 @@ svg.medical {
   }
   .svg-1 {
     width: 180%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .landing-page {
+    height: 100%;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .navbar {
+    display: none;
+  }
+  .landing-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .landing-content h1 {
+    font-size: 45px;
+    text-align: center;
+  }
+  .landing-content p {
+    font-size: 20px;
+  }
+  .svg {
+    display: none;
+  }
+
+  .svg-1 {
+    display: none;
   }
 }

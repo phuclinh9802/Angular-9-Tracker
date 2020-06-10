@@ -10,24 +10,23 @@ import * as $ from "jquery";
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+  sidebar: Boolean = false;
   constructor(private jwtHelper: JwtHelperService, private router: Router) { }
 
   ngOnInit(): void {
+    if (document.body.style.width === "400px") {
+      this.sidebar = true;
+    }
     $(function () {
       $(document).scroll(function () {
         var $nav = $(".navbar");
         $nav.toggleClass('fixed', $(this).scrollTop() > $nav.height());
       });
     });
-  }
-
-
-  isScrolled(): void {
     
-
   }
 
+  
   isUserAuthenticated() {
     let token: string = localStorage.getItem("jwt");
     if (token && !this.jwtHelper.isTokenExpired(token)) {
