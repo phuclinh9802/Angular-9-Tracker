@@ -26,7 +26,23 @@ export class DashboardComponent implements OnInit {
     
   }
 
-  
+  openNav():void {
+    document.getElementById("sb").style.width = "100%";
+    document.getElementById("name").style.display = "block";
+    document.getElementById("ul").style.display = "block";
+
+  }
+
+  closeNav():void {
+    document.getElementById("sb").style.width = "0%";
+    document.getElementById("name").style.display = "none";
+    document.getElementById("ul").style.display = "none";
+
+  }
+
+  // toLight(): void {
+  //   document.body
+  // }
   isUserAuthenticated() {
     let token: string = localStorage.getItem("jwt");
     if (token && !this.jwtHelper.isTokenExpired(token)) {

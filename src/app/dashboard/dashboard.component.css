@@ -18,11 +18,12 @@
     animation-delay: 7s;
     animation-fill-mode: forwards;
 }
-/* .loader.hidden {
-    animation: out 0.5s;
-    animation-delay: 5s;
-    animation-fill-mode: forwards;
-} */
+
+.main {
+  width: 100%;
+  height: calc(100vh + 100% + 100px + 100% + 200px);
+  /* background-color: white; */
+}
 
 .loader h2 {
     color: #fff;
@@ -36,6 +37,16 @@
       typing 5s steps(50, end),
       blink-caret .75s step-end infinite;
   }
+
+
+  .burger {
+    position: absolute;
+    font-size: 30px;
+    cursor: pointer;
+    color: white;
+    padding: 10px;
+    /* opacity: 0; */
+}
 
   
 
@@ -299,7 +310,8 @@ svg.medical {
   }
 }
 
-@media only screen and (max-width: 400px) {
+
+@media only screen and (max-width: 768px) {
   .landing-page {
     height: 100%;
     grid-template-columns: repeat(1, 1fr);
@@ -319,6 +331,8 @@ svg.medical {
   }
   .landing-content p {
     font-size: 20px;
+    text-align: center;
+
   }
   .svg {
     display: none;

@@ -149,7 +149,7 @@ button.btn-danger:hover {
 
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 576px) {
     .chart {
         padding: 0;
     }

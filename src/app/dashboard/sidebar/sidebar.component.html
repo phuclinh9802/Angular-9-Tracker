@@ -1,12 +1,12 @@
-    <span class="burger" (click)="openNav()">&#9776;</span>
+    <span class="burger" style="color:white;"(click)="openNav()">&#9776;</span>
     <div id="sb" class="sidebar" >
         <div class="content">
             <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
             <p id="name">Phillip Nguyen</p>
             <ul id="ul">
-                <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="/coming-soon"><i class="fas fa-address-card"></i> About</a></li>
-                <li><a href="/coming-soon"><i class="fas fa-address-book"></i> US C-19 Info</a></li>
+                <li><a routerLink="/"><i class="fas fa-home"></i> Home</a></li>
+                <li><a routerLink="/coming-soon"><i class="fas fa-address-card"></i> About</a></li>
+                <li><a routerLink="/coming-soon"><i class="fas fa-address-book"></i> US C-19 Info</a></li>
                 <li><a (click)="logOut()"><i class="fas fa-sign-in-alt"></i> Logout</a></li>
             </ul>
         </div>

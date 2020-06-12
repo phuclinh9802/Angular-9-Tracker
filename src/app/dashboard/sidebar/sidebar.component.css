@@ -7,6 +7,7 @@
     padding: 20px 0;
     transition: 0.5s;
     border-right: 1px solid #61892F;
+    display: none;
 }
 
 #sb {
@@ -67,14 +68,31 @@
     cursor: pointer;
     color: white;
     padding: 10px;
+    /* opacity: 0; */
 }
 
-span {
-    display: none;
-}
-@media only screen and (max-width: 400px) {
-    span {
+/* span {
+    opacity: 0;
+} */
+@media only screen and (max-width: 768px) {
+    .burger {
+        z-index: 3;
+    }
+    .sidebar {
+        z-index: 3;
         display: block;
-        margin-bottom: 20px;
+    }
+
+    li {
+        text-align: center;
+        font-size: 30px;
+    }
+
+    #name {
+        font-size: 32px;
+    }
+
+    #ul {
+        margin-top: 50px;
     }
 }
