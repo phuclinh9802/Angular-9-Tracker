@@ -18,3 +18,8 @@
     #### GitHub
     #### Nginx/Apache (in process)
     #### AWS
+
+## Diagram to follow:
+<p align="center">
+    <img src="CoronaTracker Diagrams and Platform/Corona Tracker Diagram-Overview (1).png" width=800>
+   </p>
