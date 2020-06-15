@@ -20,6 +20,18 @@
     #### AWS
 
 ## Diagram to follow:
-<p align="center">
-    <img src="CoronaTracker Diagrams and Platform/Corona Tracker Diagram-Overview (1).png" width=800>
-   </p>
+### 1. Overview 
+  <p align="center">
+      <img src="CoronaTracker Diagrams and Platform/Corona Tracker Diagram-Overview (1).png" width=800>
+  </p>
+   
+### 2. Register/Login pages
+  <p align="center">
+    <img src="CoronaTracker Diagrams and Platform/Corona Tracker Diagram-Register_Login (SPA).png" width=800>
+  </p>
+   
+### 3. Dashboard page
+  <p align="center">
+    <img src="CoronaTracker Diagrams and Platform/Corona Tracker Diagram-Dashboard - Redesign.png" width=800>
+  </p>
+  
