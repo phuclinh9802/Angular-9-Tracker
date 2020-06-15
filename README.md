@@ -51,3 +51,5 @@
   <p align="center">
     <img src="register_success.png" width=600>
   </p>
+  
+  - Go back to login page by clicking "here" at the bottom of the form again, and sign in. You should be able to access the page now.
