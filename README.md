@@ -53,3 +53,20 @@
   </p>
   
   - Go back to login page by clicking "here" at the bottom of the form again, and sign in. You should be able to access the page now.
+  - Some of the dashboard's screenshots:
+    - Landing page:
+    <p align="center">
+      <img src="db_1.png" width=600>
+    </p>
+    
+    - News: (MySQL + .NET Core as Backend)
+     <p align="center">
+      <img src="db_2.png" width=600>
+    </p>
+ 
+    - Covid-19 Data (CovidAPI as 3rd-party database)
+     <p align="center">
+      <img src="db_3.png" width=600>
+    </p>
+  
+  
