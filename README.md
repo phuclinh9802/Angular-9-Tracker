@@ -17,7 +17,7 @@
 ### 4. Deployment:
   - GitHub
   - Nginx/Apache (in process)
-  - AWS
+  - AWS (server is down due to expensive cost)
 
 ## B. Diagram to follow:
 ### 1. Overview 
